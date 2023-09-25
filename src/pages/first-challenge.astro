@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QR from "../images/image-qr-code.png"
+import QRcard from "../components/QRcard.astro";
+
+let firstImage = QR
+let firstTitle = "Improve your front-end skills by building projects"
+let firstDesc = "Scan the QR code to visit Frontend Mentor and take tour coding skill to the next level"
+---
+
+<Layout title="First Challenge">
+  <main class="first-challenge-body">
+
+      <QRcard cardImage={firstImage} cardTitle={firstTitle} cardDescription={firstDesc}/>
+
+  </main>
+</Layout>
+
+<style>
+  /* front-end mentor css code */
+  .first-challenge-body{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--White);
+    
+  }
+  .first-challenge {
+    display: flex;
+    justify-content: center;
+    
+
+  }
+</style>
