@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MemoryIcon from "../assets/icon/icon-memory.svg"
+import ReactionIcon from "../assets/icon/icon-memory.svg"
+import VerbalIcon from "../assets/icon/icon-memory.svg"
+import VisualIcon from "../assets/icon/icon-memory.svg"
+import QRcard from "../components/QRcard.astro";
+import SummaryCard from "../components/SummaryCard.astro";
+
+// let firstImage = QR
+let firstTitle = "Improve your front-end skills by building projects"
+let firstDesc = "Scan the QR code to visit Frontend Mentor and take tour coding skill to the next level"
+---
+
+<Layout title="Second Challenge">
+  <main class="second-challenge-body">
+
+      <SummaryCard />
+
+  </main>
+</Layout>
+
+<style>
+  /* front-end mentor css code */
+  .second-challenge-body{
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--White);
+    
+  }
+  .first-challenge {
+    display: flex;
+    justify-content: center;
+    
+
+  }
+</style>

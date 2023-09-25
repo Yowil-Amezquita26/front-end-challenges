@@ -8,9 +8,7 @@ export interface Props {
   active: boolean;
 }
 
-let {active=false} = Astro.props as Props
-
-
+let { active = false } = Astro.props as Props;
 ---
 
 <Layout title="Welcome to Astro.">
@@ -50,18 +48,17 @@ let {active=false} = Astro.props as Props
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
       above.
     </p>
-    <button class="modalButton"> <a href="first-challenge">QR-code</a></button>
-	
+
     <ul role="list" class="link-card-grid">
       <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
+        href="first-challenge"
+        title="QR code component"
+        body="A perfect first challenge if you're new to HTML and CSS. The card layout doesn't shift, so it's ideal if you haven't learned about building responsive layouts yet."
       />
       <Card
-        href="https://astro.build/integrations/"
+        href="second-challenge"
         title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
+        body="This challenge has something for everyone. It’s a HTML and CSS only project, but we’ve also provided a JSON file of the test results for anyone wanting to practice JS."
       />
       <Card
         href="https://astro.build/themes/"
@@ -77,9 +74,9 @@ let {active=false} = Astro.props as Props
   </main>
 </Layout>
 
-<script >
-	const modal = document.querySelector("button.modalButton");
-  
+<script>
+  const modal = document.querySelector("button.modalButton");
+
   if (modal) {
     modal.addEventListener("click", () => console.log("Testing"));
   } else {
@@ -147,13 +144,13 @@ let {active=false} = Astro.props as Props
     padding: 0;
   }
 
-  a{
+  a {
     color: white;
     text-decoration: none;
     font-size: 25px;
   }
 
-  button{
+  button {
     background: #23262d;
   }
 </style>
