@@ -1,13 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MemoryIcon from "../assets/icon/icon-memory.svg"
-import ReactionIcon from "../assets/icon/icon-memory.svg"
-import VerbalIcon from "../assets/icon/icon-memory.svg"
-import VisualIcon from "../assets/icon/icon-memory.svg"
-import QRcard from "../components/QRcard.astro";
 import SummaryCard from "../components/SummaryCard.astro";
-
-// let firstImage = QR
+import cognitiveSkills from "../assets/jsons/data.json"
 let firstTitle = "Improve your front-end skills by building projects"
 let firstDesc = "Scan the QR code to visit Frontend Mentor and take tour coding skill to the next level"
 ---
@@ -15,8 +9,7 @@ let firstDesc = "Scan the QR code to visit Frontend Mentor and take tour coding 
 <Layout title="Second Challenge">
   <main class="second-challenge-body">
 
-      <SummaryCard />
-
+      <SummaryCard summary={cognitiveSkills}/>
   </main>
 </Layout>
 
@@ -34,7 +27,7 @@ let firstDesc = "Scan the QR code to visit Frontend Mentor and take tour coding 
     background-color: var(--White);
     
   }
-  .first-challenge {
+  .second-challenge {
     display: flex;
     justify-content: center;
     

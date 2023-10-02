@@ -1,18 +1,45 @@
 ---
 export interface Props {
-  summary?: [];
+  summary?: object;
 }
 
 const {
   summary,
 } = Astro.props as Props;
+let total = 0
+const porcent = (data) =>{
+    data.map((e)=>{
+      total+=e.score
+    },
+    )
+    total = Math.floor(total/data.length)
+    console.log();
+    
+}
+porcent(summary)
+console.log();
 ---
 
 <>
   <div class="modal-background">
-    <section class="cardStyle">
-      <div class="information">
-      </div>
+    <section class="summaryStyle first-part">
+        <h2>Your Result</h2>
+        <div>
+          <h1>{total}</h1>
+          <h2>/100</h2>
+        </div>
+        <div>
+          <h1>Great</h1>
+          <h2>Yor scored higher than 65% if the people who have taken these tests.</h2>
+        </div>
+    </section>
+    <section class="summaryStyle">
+        <h2>Summary</h2>
+        {summary[0].map((e)=>{
+          <h1>{e.score}</h1>
+        })}
+        <div>
+        </div>
     </section>
   </div>
 </>
@@ -23,14 +50,9 @@ const {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    height: 70%;
-    box-shadow: 0 0 10px 5px rgba(64, 64, 78, 0.2);
-    background-color: var(--Grayish-blue);
+    /* background-color: var(--White); */
   }
-  .cardStyle {
-    margin: 25px;
-    padding: 25px;
+  .summaryStyle {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -38,7 +60,18 @@ const {
     height: 400px;
     border-radius: 1rem;
     background-color: white;
-    box-shadow: 0 5px rgb(0, 0, 0, 0.1);
+  }
+  .first-part{
+    background: var(--Light-slate-blue);
+  }
+  .summaryDetailStyle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    border-radius: 1rem;
+    background-color: white;
   }
 
   .QR-image {
