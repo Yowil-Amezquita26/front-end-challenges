@@ -1,51 +1,71 @@
 ---
 export interface Props {
-  summary?: object;
+  summary?: {
+    category: string;
+    score: number;
+    icon: string;
+  }[];
 }
 
-const {
-  summary,
-} = Astro.props as Props;
-let total = 0
-const porcent = (data) =>{
-    data.map((e)=>{
-      total+=e.score
-    },
-    )
-    total = Math.floor(total/data.length)
-    console.log();
-    
-}
-porcent(summary)
-console.log();
+const { summary } = Astro.props as Props;
+let total = 0;
+const porcent = (data) => {
+  data.map((e) => {
+    total += e.score;
+  });
+  total = Math.floor(total / data.length);
+  console.log();
+};
+porcent(summary);
+// console.log(summary[0].icon)
 ---
 
 <>
   <div class="modal-background">
     <section class="summaryStyle first-part">
-        <h2>Your Result</h2>
-        <div>
-          <h1>{total}</h1>
-          <h2>/100</h2>
-        </div>
-        <div>
-          <h1>Great</h1>
-          <h2>Yor scored higher than 65% if the people who have taken these tests.</h2>
-        </div>
+      <h2>Result</h2>
+      <div class="scores">
+        <h1>{total}</h1>
+        <h1>/100</h1>
+      </div>
+      <div class="result-information">
+        <h1>Great</h1>
+        <h2>
+          Yor scored higher than 65% if the people who have taken these tests.
+        </h2>
+      </div>
     </section>
-    <section class="summaryStyle">
-        <h2>Summary</h2>
-        {summary[0].map((e)=>{
-          <h1>{e.score}</h1>
-        })}
-        <div>
-        </div>
+    <section class="summaryStyle second-part">
+      <h2>Summary</h2>
+      <div class="summaryStats">
+        <ul class="stats-ulist">
+          {
+            summary.map((e) => (
+              <>
+                <li class="summary-stat">
+                  <h3 class="stats-text">
+                    <img
+                      src={`/${e.icon}.svg`}
+                      alt={`Icono de ${e.category}`}
+                    />
+                    {e.category}
+                  </h3>
+                  <h4 class="stats-score">{e.score} / 100</h4>
+                </li>
+              </>
+            ))
+          }
+        </ul>
+      </div>
     </section>
   </div>
 </>
 
 <style>
   /* front-end mentor css code */
+
+  /* First Card */
+
   .modal-background {
     display: flex;
     justify-content: center;
@@ -60,35 +80,33 @@ console.log();
     height: 400px;
     border-radius: 1rem;
     background-color: white;
+    overflow: hidden;
   }
-  .first-part{
+  .first-part {
     background: var(--Light-slate-blue);
   }
-  .summaryDetailStyle{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 300px;
-    height: 400px;
-    border-radius: 1rem;
-    background-color: white;
+
+  /* Second Card */
+
+  .second-part {
+    align-items: baseline;
+    padding-left: 20px;
   }
 
-  .QR-image {
-    /* display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center; */
-    width: 85%;
-    height: 55%;
-    object-fit: cover;
-    border-radius: 20px;
+  .summaryStats {
+    display: flex;
   }
 
-  .information {
+  .summary-stat {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .stats-ulist {
+    padding: 0px;
+    display: flex;
     flex-direction: column;
   }
 
