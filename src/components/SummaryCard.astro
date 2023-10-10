@@ -26,11 +26,11 @@ porcent(summary);
       <h2>Result</h2>
       <div class="scores">
         <h1>{total}</h1>
-        <h1>/100</h1>
+        <h4>/100</h4>
       </div>
       <div class="result-information">
         <h1>Great</h1>
-        <h2>
+        <h2 class="detail-information">
           Yor scored higher than 65% if the people who have taken these tests.
         </h2>
       </div>
@@ -84,8 +84,36 @@ porcent(summary);
     background-color: white;
     overflow: hidden;
   }
+
+  .summaryStyle .result-information{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 15px 0px 15px;
+    font-size: 20px;
+
+  }
   .first-part {
-    background: var(--Light-slate-blue);
+    background: linear-gradient(to bottom, var(--Light-slate-blue), var(--Violet-blue));
+    color: white;
+    margin:1%
+  }
+
+  .scores{
+    background: linear-gradient(to bottom,  var(--Violet-blue), var(--Light-slate-blue));
+    width: 45%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+
+  }
+
+  .scores h1{
+    margin: 0px;
+    padding: 0px;
   }
 
   /* Second Card */
